@@ -2,6 +2,7 @@ package root.nonsa;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,11 +12,13 @@ import android.widget.TextView;
 
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 
 public class MainActivity extends ActionBarActivity {
 
     Client client;
+    public static final int timeout = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +28,31 @@ public class MainActivity extends ActionBarActivity {
         // Set up the send button
         send_button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                TextView log = (TextView) findViewById(R.id.chat_log);
                 EditText box = (EditText) findViewById(R.id.message_box);
-                log.setText(log.getText() + "\n" + box.getText());
+                addText(box.getText());
                 box.setText("");
             }
         });
         // Start client
-        client = new Client();
+        try {
+            client = Client.getClient();
+            addText("Connecting to " + getIntent().getStringExtra("hostname") + " ..");
+            if(client.connect(InetAddress.getByName(getIntent().getStringExtra("hostname")), timeout)){
+                addText("Connection established.");
+            }else throw new UnknownHostException();
+        } catch (UnknownHostException e) {
+            addText("ERROR: Host not found");
+        }
+    }
+
+    public void addText(Editable s){
+        TextView log = (TextView) findViewById(R.id.chat_log);
+        log.setText(log.getText() + "\n" + s);
+    }
+
+    public void addText(String s){
+        TextView log = (TextView) findViewById(R.id.chat_log);
+        log.setText(log.getText() + "\n" + s);
     }
 
     @Override

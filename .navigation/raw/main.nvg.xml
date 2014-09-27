@@ -13,8 +13,8 @@
           y = "0"/>
       </key>
       <value      
-        x = "800"      
-        y = "160"      
+        x = "-160"      
+        y = "1120"      
         class = "com.android.navigation.Point"/>
     </entry>
     <entry>
@@ -27,6 +27,30 @@
       <value      
         x = "1768"      
         y = "100"      
+        class = "com.android.navigation.Point"/>
+    </entry>
+    <entry>
+      <key      
+        class = "com.android.navigation.ActivityState"      
+        className = "root.nonsa.ConnectActivity">
+        <location        
+          idref = "point0"/>
+      </key>
+      <value      
+        x = "3360"      
+        y = "1120"      
+        class = "com.android.navigation.Point"/>
+    </entry>
+    <entry>
+      <key      
+        class = "com.android.navigation.MenuState"      
+        xmlResourceName = "connect">
+        <location        
+          idref = "point0"/>
+      </key>
+      <value      
+        x = "800"      
+        y = "1440"      
         class = "com.android.navigation.Point"/>
     </entry>
   </locations>
