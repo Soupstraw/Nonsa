@@ -13,16 +13,10 @@ public class Client {
 
     public static final int port = 25536;
     private Socket socket;
-    private ServerSocket listener;
     private static Client client;
 
     private Client(){
-        try {
-            listener = new ServerSocket(port);
-            listener.accept();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
     public static Client getClient(){
@@ -30,6 +24,10 @@ public class Client {
             client = new Client();
         }
         return client;
+    }
+
+    public void sendMessage(String msg){
+
     }
 
     public boolean connect(InetAddress addr, int timeout){

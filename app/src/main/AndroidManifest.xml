@@ -6,7 +6,6 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <uses-permission android:name="android.permission.INTERNET" />
         <activity
             android:name=".ConnectActivity"
             android:label="@string/app_name" >
@@ -21,4 +20,5 @@
             android:label="@string/app_name" >
         </activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

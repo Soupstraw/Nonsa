@@ -1,7 +1,7 @@
 package root.nonsa;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.net.InetAddress;
-import java.net.Socket;
 import java.net.UnknownHostException;
 
 
